@@ -9,7 +9,7 @@ local ensure_packer = function()
     return false
 end
 
-ensure_packer()
+local packer_bootstrap = ensure_packer()
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -21,6 +21,19 @@ local packer_display_configuration = {
         return require('packer.util').float({border = 'rounded'})
     end
 }
-packer.init({
-    display = packer_display
-})
+
+
+local load_plugins = function(use)
+    local plugins = require('plugins')
+    for i,plugin in ipairs(plugins) do
+         use {plugin}
+    end
+    if packer_bootstrap then
+        packer.sync()
+    end
+end
+
+
+packer.init({ display = packer_display_configuration})
+packer.startup(load_plugins)
+
