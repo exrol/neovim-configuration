@@ -1,2 +1,3 @@
+require("config.lazy")
 require('vim-settings')
-require('packer-configuration')
+require('keymaps')
