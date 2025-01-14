@@ -1,9 +1,5 @@
-return {{
+return { {
 	"mfussenegger/nvim-dap",
-    dependencies = {
-    },
-    config = function()
-    end
-},
-}
-
+	dependencies = {},
+	config = function() end,
+} }
