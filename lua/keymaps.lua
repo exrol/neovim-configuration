@@ -28,6 +28,7 @@ set("n", "<leader>nh", ":NotificationsClear<CR>", opts)
 set("n", "<leader>tg", ":NvimTreeFindFileToggle<CR>", opts)
 
 -- Git sign
+local gitsigns = require("gitsigns")
 vim.keymap.set("n", "<leader>hs", gitsigns.stage_hunk, {})
 vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk, {})
 vim.keymap.set("v", "<leader>hs", function()
